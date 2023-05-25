@@ -31,4 +31,4 @@ pip install -r requirements.txt
 
 ## 系统界面
 
-![图片1](.\img\图片1.png)
+![图片1.png](https://github.com/voluntexi/Emotion-Analysis-System/blob/main/img/%E5%9B%BE%E7%89%871.png?raw=true)
