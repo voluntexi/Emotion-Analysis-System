@@ -9,17 +9,17 @@ def pushBlibili(): 为B站
 def pushWeibo(filename):
     excelFile = filename+".xls"
     df = pd.DataFrame(pd.read_excel(excelFile))
-    engine = create_engine("mysql+pymysql://root:xtj125478963@localhost:3306/test?charset=utf8mb4", echo=False)
+    engine = create_engine("mysql+pymysql://root:password@localhost:3306/test?charset=utf8mb4", echo=False)
     df.to_sql(filename, con=engine, if_exists='append', index=False)
 def pushDouyin(filename):
     excelFile = filename+".xls"
     df = pd.DataFrame(pd.read_excel(excelFile))
-    engine = create_engine("mysql+pymysql://root:xtj125478963@localhost:3306/test?charset=utf8mb4", echo=False)
+    engine = create_engine("mysql+pymysql://root:password@localhost:3306/test?charset=utf8mb4", echo=False)
     df.to_sql(filename, con=engine, if_exists='append', index=False)
 def pushBlibili(filename):
     excelFile = filename+".xls"
     df = pd.DataFrame(pd.read_excel(excelFile))
-    engine = create_engine("mysql+pymysql://root:xtj125478963@localhost:3306/test?charset=utf8mb4", echo=False)
+    engine = create_engine("mysql+pymysql://root:password@localhost:3306/test?charset=utf8mb4", echo=False)
     df.to_sql(filename, con=engine, if_exists='append',index=False)
 # pushBlibili('bilibili_comment')
 pushWeibo('weibo_comment')
