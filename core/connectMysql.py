@@ -1,7 +1,7 @@
 import pymysql
 def getConn():
     # 打开数据库连接
-    conn = pymysql.connect(host="175.178.78.86", user="root", password="123", db="test",port=3306,charset='utf8mb4')
+    conn = pymysql.connect(host="localhost", user="root", password="password", db="test",port=3306,charset='utf8mb4')
     return conn
 
 # 采用占位符的方式来防止SQL注入
