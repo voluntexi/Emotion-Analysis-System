@@ -13,6 +13,7 @@ from openpyxl import load_workbook
 在def singleSentiment(text) 输入要分析的字符串数组
 功能：会返回一个每个句子的情感子的数组
 
+ps:目前已换为使用微调的bert进行情感分析
 '''
 negative_file = r'E:\PythonProject\sentiment\core\否定词.txt'
 adv_file = r'E:\PythonProject\sentiment\core\程度副词.xlsx'
