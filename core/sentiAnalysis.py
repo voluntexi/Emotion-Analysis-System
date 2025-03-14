@@ -1,5 +1,6 @@
 from cemotion import Cemotion
 
+ps:目前已换为使用微调的bert进行情感分析
 '''
 功能：根据输入的字符串数组来进行计算情感值使用微调的bert进行情感分析
 '''
