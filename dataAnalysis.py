@@ -10,6 +10,8 @@ module_path = os.path.abspath('./core')
 sys.path.append(module_path)
 from WordCloud import wordFrequency
 import addExcel
+
+
 def drawchart(df):
     df['Sentiment'] = df['Comment_Value'].apply(lambda x: 'Negative' if x < 0 else 'Positive')
     # 统计情感分布
@@ -23,13 +25,14 @@ def drawchart(df):
     # 显示图表
     st.pyplot(fig)
 
+
 st.title("数据分析")
 st.write("您已经完成了数据的获取，接下来进行数据的分析阶段吧！")
-selected_platform = st.radio("选择数据分析源", ("(从下面三个按钮中开始选择）","新浪微博", "Bilibili", "抖音"))
-choose=''
+selected_platform = st.radio("选择数据分析源", ("(从下面三个按钮中开始选择）", "新浪微博", "Bilibili", "抖音"))
+choose = ''
 if selected_platform == "新浪微博":
     st.write("您选择了新浪微博")
-    choose=1
+    choose = 1
 elif selected_platform == "Bilibili":
     st.write("您选择了Bilibili")
     choose = 2
@@ -39,8 +42,8 @@ elif selected_platform == "抖音":
 if choose != '':
     match choose:
         case 1:
-            st.markdown("> 计算微博平台评论情感")
-            filename = "weibo_comment.xls"
+            st.markdown("> 计算微博平台评论情感中...")
+            filename = r"./crawledData/weibo_comment.xlsx"
             addExcel.WriteSenti(filename)
             res = 1
             df = pd.read_excel(filename)
@@ -71,7 +74,7 @@ if choose != '':
             st.pyplot(plt)
         case 2:
             st.markdown("> 计算bilibili平台评论情感")
-            filename = "bilibili_comment.xls"
+            filename = r"./crawledData/bilibili_comment.xlsx"
             addExcel.WriteSenti(filename)
             res = 1
             df = pd.read_excel(filename)
@@ -103,13 +106,14 @@ if choose != '':
 
         case 3:
             st.markdown("> 计算抖音平台评论情感")
-            filename = "douyin_comment.xls"
+
+            filename = r"./crawledData/douyin_comment.xlsx"
             addExcel.WriteSenti(filename)
             res = 1
 
             df = pd.read_excel(filename)
             st.dataframe(df)
-            num=[]
+            num = []
             for j in range(len(df['Comment_ID'])):
                 num.append(j)
 
@@ -139,6 +143,6 @@ st.markdown('''
 
 
 
-        <center> @voluntexi </center> 
+        <center> 基于Bert中文社交媒体的情感分析系统 </center> 
 
-''',unsafe_allow_html=True)
+''', unsafe_allow_html=True)

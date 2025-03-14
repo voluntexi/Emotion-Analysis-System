@@ -3,6 +3,20 @@
 
 ## 使用
 
+* 1.设置cookie
+
+  打开`config.py`文件，填写对应网站的cookie值。
+
+  eg：填写B站cookie：
+
+  1. 打开B站，登录账号
+
+  2. 按F12打开控制台，点击网络（network）
+
+  3. 打开一个文件点击标头，将这里面的数据填入文件
+
+     ![img1.png](https://github.com/voluntexi/Sentiment-Analysis-System-for-Chinese-Social-Media-Based-on-BERT/blob/main/img/img1.png?raw=true)
+
 * 1.安装所需要库
 
 ```
@@ -31,4 +45,4 @@ pip install -r requirements.txt
 
 ## 系统界面
 
-![图片1.png](https://github.com/voluntexi/Emotion-Analysis-System/blob/main/img/%E5%9B%BE%E7%89%871.png?raw=true)
+![图片1.png](https://github.com/voluntexi/Sentiment-Analysis-System-for-Chinese-Social-Media-Based-on-BERT/blob/main/img/%E5%9B%BE%E7%89%871.png?raw=true)
