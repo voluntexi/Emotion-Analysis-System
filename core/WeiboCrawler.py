@@ -15,6 +15,7 @@ names = "weibo_comment"
 def crawler(url):
     global allData
     id = url.split('/')[-1]
+    print(id)
     mid = id
     allData, comment_num = getCommentInfo(id, mid)
     writeToExcel()
@@ -28,10 +29,13 @@ def getCommentInfo(id, mid):
     }
     microblog = []
     url = 'https://m.weibo.cn/comments/hotflow?id={}&mid={}&max_id_type=0'.format(id, mid)
+    print(url)
     comment_num = 0
     page = 1
     while True:
         res = requests.get(url, headers=headers)
+        if res.json()['ok'] == 0:
+            break
         data = res.json()['data']
         max_id = data['max_id']
         user_info = data['data']
@@ -88,15 +92,14 @@ def writeToExcel():
     pdData = pd.DataFrame(allData)
     pdData.columns = ['Comment_ID', 'Comment_Name', 'Comment_Content', 'Comment_Time']
     cleanData(pdData)
-    writer = pd.ExcelWriter('./crawledData/{}.xlsx'.format(names))
-    pdData.to_excel(writer, sheet_name='cx', index=False)
-    writer.save()
-    writer.close()
+    with pd.ExcelWriter('./crawledData/{}.xlsx'.format(names)) as writer:
+        pdData.to_excel(writer, sheet_name='cx', index=False)
     print("写入Excel成功")
+
 
 
 def WeiboCrawler(url):
     crawler(url)
     return pdData
 
-# WeiboCrawler("https://m.weibo.cn/detail/5143362977924156")
+WeiboCrawler("https://m.weibo.cn/detail/5147329233425683")
